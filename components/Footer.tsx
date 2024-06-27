@@ -12,8 +12,8 @@ import LocationPinIcon from "../public/assets/location_pin.svg"
 const Footer: React.FC = () => {
   return (
     <footer className="bg-gray-900 text-gray-300 py-10 w-full h-max">
-      <div className="container mx-auto flex flex-col md:flex-row justify-between items-center md:items-start space-y-6 md:space-y-0">
-        <div className="flex flex-col items-center md:items-start space-y-4">
+      <div className="container mx-auto flex flex-col md:flex-row justify-between items-start space-y-6 md:space-y-0 px-2">
+        <div className="flex flex-col items-start space-y-4 ">
           <VistaVerticalLogo />
           <div className="flex mt-2">
             <LocationPinIcon className="mr-2" />
@@ -41,7 +41,7 @@ const Footer: React.FC = () => {
           </a>
           {/* Add any additional contact info here if needed */}
         </div>
-        <div className="flex flex-col items-center space-y-4">
+        <div className="flex flex-col items-start md:items-center space-y-4">
           <h5 className="font-bold text-white">Social Links</h5>
           <div className="flex mt-2 space-x-4">
             <a href="https://facebook.com" aria-label="Facebook">
@@ -59,7 +59,7 @@ const Footer: React.FC = () => {
           </div>
         </div>
       </div>
-      <div className="container flex justify-center mx-auto mt-10 border-t border-gray-700 pt-6 space-x-6 ">
+      <div className="container flex justify-center mx-auto mt-10 border-t border-gray-700 pt-6 space-x-6 px-2">
         <p className=" text-sm">
           &copy; Company name 2024. All rights reserved. |
           <a href="/privacy-policy" className="hover:underline">

@@ -101,7 +101,7 @@ const Contact = () => {
             </p>
           </div>
         </div>
-        <div className="relative bg-white px-8 py-5 rounded-lg shadow-md border border-gray-300 w-[75%] m-8">
+        <div className="relative bg-white px-4 lg:px-8 py-5 rounded-lg shadow-md border border-gray-300 w-[75%] m-8">
           <div className="flex flex-wrap md:relative">
             <div className="w-full md:w-3/4 mb-8 md:mb-0">
               <form onSubmit={handleSubmit}>
@@ -264,8 +264,8 @@ const Contact = () => {
                 </div>
               </form>
             </div>
-            <div className="w-full md:w-1/4 px-4">
-              <div className="static bg-[#011021] w-[30%] h-[80%] text-white p-6 rounded-md shadow-lg md:absolute md:top-12 md:right-[-7rem] md:ml-8">
+            <div className="w-full md:w-1/4 md:px-4">
+              <div className="static bg-[#011021] w-full h-full md:w-[30%] md:h-[80%] text-white p-2 md:p-6 rounded-md shadow-lg md:absolute md:top-12 md:right-[-7rem] md:ml-8">
                 <h2 className="text-xl font-semibold mb-4">
                   Contact information
                 </h2>

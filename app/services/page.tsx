@@ -227,7 +227,7 @@ const Services: React.FC = () => {
         >
           <div className="absolute inset-0 bg-black opacity-70"></div>
           <div className="relative z-10 max-w-[56rem] mx-auto px-4 sm:px-6 lg:px-8 pt-16 flex flex-col items-center">
-            <h2 className="text-white text-4xl sm:text-5xl lg:text-5xl font-semibold">
+            <h2 className="text-white text-3xl sm:text-4xl lg:text-5xl font-semibold">
               Explore our expertise
             </h2>
             <p className="my-5 text-white text-sm max-w-2xl text-center">
@@ -238,10 +238,10 @@ const Services: React.FC = () => {
           </div>
         </div>
         <div className="w-full px-5 py-10 flex flex-col items-center bg-white">
-          <h2 className="text-3xl sm:text-4xl lg:text-4xl font-semibold text-center">
+          <h2 className="text-xl sm:text-2xl lg:text-4xl font-semibold text-center">
             Extract Maximum Engagement with Elevated Solutions
           </h2>
-          <p className="text-[#4D5763] text-md max-w-3xl mt-4 text-center px-10">
+          <p className="text-[#4D5763] text-sm md:text-md max-w-3xl mt-4 text-center md:px-10">
             Bringing immersive experiences for both your team and customers with
             our comprehensive suite of cloud, data, and digital solutions.
           </p>
@@ -266,10 +266,10 @@ const Services: React.FC = () => {
         />
       </div>
       <section className="bg-blue-50 py-16 mt-10 flex flex-col items-center w-full">
-        <h2 className="text-3xl font-semibold text-center mb-4 font">
+        <h2 className="text-xl md:text-3xl font-semibold text-center mb-4 mx-2">
           Ready to win the race in internet space?
         </h2>
-        <p className="text-center text-[#4D5763] text-sm mb-8 max-w-[37rem] mx-auto font-poppins">
+        <p className="text-center text-[#4D5763] text-sm mb-8 max-w-[37rem] md:mx-auto font-poppins mx-2">
           One small step towards technological solutions, one giant leap for
           your brand.
         </p>

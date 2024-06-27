@@ -153,7 +153,7 @@ const VistaFlair = () => {
   return (
     <div className="flex flex-col min-h-screen w-full items-center justify-between overflow-x-hidden bg-white">
       <Header backgroundColor="#FFF" />
-      <div className="w-3/4 mx-24 mb-16 mt-28 flex flex-col items-center rounded-md">
+      <div className="w-[90%] md:w-3/4 mx-5 md:mx-24 mb-16 mt-28 flex flex-col items-center rounded-md">
         <Slider {...settings} className="w-full ">
           {carouselImages.map((image, index) => (
             <div key={index} className="relative w-full h-[500px]">
@@ -166,14 +166,18 @@ const VistaFlair = () => {
                 className="rounded-md"
               />
               <div className="absolute inset-0 bg-black opacity-50 rounded-md"></div>
-              <div className="absolute inset-0 flex items-center justify-end rounded-md">
-                <div className="bg-gray-800 bg-opacity-70 text-white p-12 w-[40%] h-full flex flex-col">
-                  <h2 className="text-2xl font-semibold mb-4">{image.title}</h2>
-                  <p className="mb-6 text-sm">
+              <div className="absolute inset-0 flex items-end md:items-center justify-end rounded-md">
+                <div className="bg-gray-800 bg-opacity-70 text-white p-2 md:p-5 lg:p-12 w-full h-[50%] md:w-[40%] md:h-full flex flex-col">
+                  <h2 className="text-md md:text-xl lg:text-2xl font-semibold mb-1 md:mb-4">
+                    {image.title}
+                  </h2>
+                  <p className="mb-1 md:mb-6 text-xs md:text-sm">
                     By <strong>{image.author}</strong>
                   </p>
-                  <p className="mb-6 text-sm">{image.description}</p>
-                  <button className="bg-transparent text-white px-4 py-2 border-2 rounded-md hover:shadow-sm w-max">
+                  <p className="mb-1 md:mb-6 text-xs md:text-sm">
+                    {image.description}
+                  </p>
+                  <button className="bg-transparent text-white px-2 md:px-4  py-1 md:py-2 border-2 rounded-md hover:shadow-sm w-max">
                     {image.buttonText}
                   </button>
                 </div>
@@ -183,7 +187,7 @@ const VistaFlair = () => {
         </Slider>
       </div>
       <div className="w-3/4 mx-24 mb-16">
-        <div className="flex justify-between items-center mb-4">
+        <div className="flex flex-col-reverse md:flex-row justify-between gap-y-1 items-center mb-4">
           <h2 className="text-xl font-semibold">Flairs in focus</h2>
           <div className="relative">
             <input

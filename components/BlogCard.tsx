@@ -19,7 +19,7 @@ const BlogCard: React.FC<BlogCardProps> = ({
       <Image
         src={image}
         alt={title}
-        width={400}
+        width={600}
         height={200}
         className="object-cover"
       />

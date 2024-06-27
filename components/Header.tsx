@@ -10,6 +10,7 @@ interface HeaderProps {
 
 const Header: React.FC<HeaderProps> = ({ backgroundColor }) => {
   const [isScrolled, setIsScrolled] = useState(false)
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -37,11 +38,11 @@ const Header: React.FC<HeaderProps> = ({ backgroundColor }) => {
           (isScrolled ? "rgba(0, 0, 0, 0.8)" : "rgba(0, 0, 0, 0)"),
       }}
     >
-      <div className={`max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 `}>
+      <div className=" mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16 items-center">
-          <div className="flex items-center">
+          <div className="w-24 md:w-48">
             {backgroundColor ? (
-              <VistaLogoHorizontalBlack />
+              <VistaLogoHorizontalBlack classname="w-24" />
             ) : (
               <VistaLogoHorizontal />
             )}
@@ -79,14 +80,71 @@ const Header: React.FC<HeaderProps> = ({ backgroundColor }) => {
               href="/contact"
               className={`flex items-center text-white ${
                 backgroundColor ? "bg-[#3E8DE3]" : "bg-transparent"
-              } px-3 py-2 rounded-lg border-white border-2 text-sm font-medium hover:bg-[#3E8DE3] hover:border-none box-border`}
+              } px-3 py-2 rounded-lg border-white border-2 text-xs md:text-sm font-medium hover:bg-[#3E8DE3] hover:border-none box-border`}
             >
-              <PhoneIcon className="mr-1" />
+              <PhoneIcon className="mr-1 font-xs md:font-sm" />
               Get in touch
             </Link>
           </div>
+          <div className="md:hidden flex items-center">
+            <button
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className={`${
+                backgroundColor ? "text-[#011021]" : "text-white"
+              } focus:outline-none`}
+            >
+              <svg
+                className="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d={
+                    isMenuOpen
+                      ? "M6 18L18 6M6 6l12 12"
+                      : "M4 6h16M4 12h16M4 18h16"
+                  }
+                ></path>
+              </svg>
+            </button>
+          </div>
         </div>
       </div>
+      {isMenuOpen && (
+        <div className="md:hidden w-full flex flex-row justify-end bg-transparent h-screen">
+          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white w-[40%]">
+            <Link
+              href="/"
+              className="block text-[#011021] px-3 py-2 rounded-md text-base font-medium"
+            >
+              Home
+            </Link>
+            <Link
+              href="/services"
+              className="block text-[#011021] px-3 py-2 rounded-md text-base font-medium"
+            >
+              Services
+            </Link>
+            <Link
+              href="/vista-flair"
+              className="block text-[#011021] px-3 py-2 rounded-md text-base font-medium"
+            >
+              VistaFlair
+            </Link>
+            <Link
+              href="/contact"
+              className="block text-[#011021] px-3 py-2 rounded-md text-base font-medium"
+            >
+              Contact Us
+            </Link>
+          </div>
+        </div>
+      )}
     </header>
   )
 }

@@ -23,13 +23,13 @@ const HorizontalBlogCard: React.FC<BlogCardProps> = ({
         <Image
           src={imageSrc}
           alt={title}
-          width={320}
+          width={600}
           height={200}
           className="rounded-md"
         />
       </div>
       <div className="w-full md:w-2/3 ">
-        <h2 className="text-xl font-semibold mb-2">{title}</h2>
+        <h2 className="text-lg md:text-xl font-semibold mb-2">{title}</h2>
         <p className="mb-2 text-sm">
           By <strong>{author}</strong>
         </p>
