@@ -14,37 +14,37 @@ const PromoSection = () => {
 
           <div className="space-y-4">
             <div className="flex flex-col lg:flex-row items-center lg:items-start">
-              <div className="w-10 h-10 lg:w-6 lg:h-6 bg-[#3E8DE3] mr-4 mt-2"></div>
+              <div className="w-10 h-10 lg:w-6 lg:h-6 bg-[#3E8DE3] mr-4 mt-2 hidden md:block"></div>
               <div className="flex flex-col justify-center lg:items-start">
                 <h3 className="text-lg md:text-xl font-semibold text-center lg:text-left">
                   Lead the curve
                 </h3>
-                <p className="text-sm md:text-md text-center lg:text-left">
+                <p className="text-md md:text-lg text-center lg:text-left">
                   March on an upward trajectory with innovative strategies and
                   seamless integration.
                 </p>
               </div>
             </div>
             <div className="flex flex-col lg:flex-row  items-center lg:items-start">
-              <div className="w-10 h-10 lg:w-6 lg:h-6 bg-[#3E8DE3] mr-4 mt-2"></div>
+              <div className="w-10 h-10 lg:w-6 lg:h-6 bg-[#3E8DE3] mr-4 mt-2 hidden md:block"></div>
               <div className="flex flex-col justify-center lg:items-start">
                 <h3 className="text-lg md:text-xl font-semibold text-center lg:text-left">
                   The extra mile
                 </h3>
 
-                <p className="text-sm md:text-md text-center lg:text-left">
+                <p className="text-md md:text-lg text-center lg:text-left">
                   Exceed every expectation with a creative and comprehensive
                   customer-centric approach.
                 </p>
               </div>
             </div>
             <div className="flex flex-col lg:flex-row  items-center lg:items-start">
-              <div className="w-10 h-10 lg:w-6 lg:h-6 bg-[#3E8DE3] mr-4 mt-2"></div>
+              <div className="w-10 h-10 lg:w-6 lg:h-6 bg-[#3E8DE3] mr-4 mt-2 hidden md:block"></div>
               <div className="flex flex-col justify-center lg:items-start">
                 <h3 className="text-lg md:text-xl font-semibold text-center lg:text-left">
                   Collaborate for Excellence
                 </h3>
-                <p className="text-sm md:text-md text-center lg:text-left">
+                <p className="text-md md:text-lg text-center lg:text-left">
                   Customise your tale to success with outcome based deliveries
                   and dedicated support.
                 </p>

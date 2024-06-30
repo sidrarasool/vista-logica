@@ -17,10 +17,10 @@ export default function Home() {
         <p className="text-[#3E8DE3] font-semibold text-md mt-10 mb-5">
           Our Services
         </p>
-        <h2 className="text-xl sm:text-2xl lg:text-4xl font-semibold text-center">
+        <h2 className="text-xl sm:text-3xl lg:text-5xl font-semibold text-center">
           Extract Maximum Engagement with Elevated Solutions
         </h2>
-        <p className="text-[#4D5763] text-sm md:text-md max-w-3xl mt-4 text-center md:px-10">
+        <p className="text-[#4D5763] text-sm md:text-lg max-w-3xl mt-4 text-center md:px-10">
           Bringing immersive experiences for both your team and customers with
           our comprehensive suite of cloud, data, and digital solutions.
         </p>

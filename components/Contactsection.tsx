@@ -7,10 +7,10 @@ import PhoneIcon from "../public/assets/phone.svg"
 const ContactSection: React.FC = () => {
   return (
     <section className="bg-blue-50 py-16 flex flex-col items-center w-full p-5">
-      <h2 className="text-xl md:text-3xl font-bold text-center mb-4 font">
+      <h2 className="text-xl md:text-4xl font-bold text-center mb-4 font">
         Ready to lead the digital evolution?
       </h2>
-      <p className="text-center text-[#4D5763] text-sm mb-8 max-w-[37rem] mx-auto font-poppins">
+      <p className="text-center text-[#4D5763] text-md md:text-lg mb-8 max-w-[37rem] mx-auto font-poppins">
         The time to ensure that digital selection doesn’t leave you behind is
         now.
       </p>

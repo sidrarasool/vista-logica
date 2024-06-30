@@ -17,7 +17,7 @@ const Footer: React.FC = () => {
           <VistaVerticalLogo />
           <div className="flex mt-2">
             <LocationPinIcon className="mr-2" />
-            <p>Oststraße 5, D-57392 Schmallenberg, Germany</p>
+            <p>Melbourne, Australia</p>
           </div>
         </div>
         <div className="flex flex-col md:items-start space-y-4">
@@ -61,7 +61,7 @@ const Footer: React.FC = () => {
       </div>
       <div className="container flex justify-center mx-auto mt-10 border-t border-gray-700 pt-6 space-x-6 px-2">
         <p className=" text-sm">
-          &copy; Company name 2024. All rights reserved. |
+          &copy; Vista Logica 2024. All rights reserved. |
           <a href="/privacy-policy" className="hover:underline">
             Privacy policy
           </a>

@@ -41,9 +41,9 @@ const Header: React.FC<HeaderProps> = ({ backgroundColor }) => {
     >
       <div className=" mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16 items-center">
-          <div className="w-24 md:w-48">
+          <div className="w-[9rem] md:w-[18rem]">
             {backgroundColor ? (
-              <VistaLogoHorizontalBlack classname="w-24" />
+              <VistaLogoHorizontalBlack />
             ) : (
               <VistaLogoHorizontal />
             )}
@@ -54,7 +54,7 @@ const Header: React.FC<HeaderProps> = ({ backgroundColor }) => {
                 href="/"
                 className={`${
                   backgroundColor ? "text-[#011021]" : "text-white"
-                } hover:text-gray-300 px-3 py-2 rounded-md text-sm font-medium`}
+                } hover:text-gray-300 px-3 py-2 rounded-md text-lg font-medium`}
               >
                 Home
               </Link>
@@ -62,7 +62,7 @@ const Header: React.FC<HeaderProps> = ({ backgroundColor }) => {
                 href="/services"
                 className={`${
                   backgroundColor ? "text-[#011021]" : "text-white"
-                } hover:text-gray-300 px-3 py-2 rounded-md text-sm font-medium`}
+                } hover:text-gray-300 px-3 py-2 rounded-md text-lg font-medium`}
               >
                 Services
               </Link>
@@ -70,18 +70,18 @@ const Header: React.FC<HeaderProps> = ({ backgroundColor }) => {
                 href="/vista-flair"
                 className={`${
                   backgroundColor ? "text-[#011021]" : "text-white"
-                } hover:text-gray-300 px-3 py-2 rounded-md text-sm font-medium`}
+                } hover:text-gray-300 px-3 py-2 rounded-md text-lg font-medium`}
               >
                 VistaFlair
               </Link>
             </div>
           </div>
-          <div className="ml-4 flex items-center md:ml-6">
+          <div className="ml-2 flex items-center md:ml-6">
             <Link
               href="/contact"
               className={`flex items-center text-white ${
                 backgroundColor ? "bg-[#3E8DE3]" : "bg-transparent"
-              } px-3 py-2 rounded-lg border-white border-2 text-xs md:text-sm font-medium hover:bg-[#3E8DE3] hover:border-none box-border`}
+              } px-3 py-2 rounded-lg border-white border-2 text-xs md:text-sm font-medium hover:bg-[#3E8DE3] hover:border-none box-border shrink-1`}
             >
               <PhoneIcon className="mr-1 font-xs md:font-sm" />
               Get in touch
