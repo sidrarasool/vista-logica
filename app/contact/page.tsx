@@ -2,14 +2,30 @@
 import Footer from "@/components/Footer"
 import Header from "@/components/Header"
 import Link from "next/link"
-import React, { useState } from "react"
+import React, { useState, ChangeEvent, FormEvent } from "react"
 
 const jobTitles = ["Developer", "Manager", "Designer", "Marketing Specialist"]
 const countries = ["United States", "Canada", "United Kingdom", "Australia"]
 const industries = ["Technology", "Finance", "Healthcare", "Education"]
 
-const Contact = () => {
-  const [formData, setFormData] = useState({
+interface FormData {
+  firstName: string
+  lastName: string
+  email: string
+  mobile: string
+  jobTitle: string
+  companyName: string
+  country: string
+  industry: string
+  projectDetail: string
+}
+
+interface Errors {
+  [key: string]: string
+}
+
+const Contact: React.FC = () => {
+  const [formData, setFormData] = useState<FormData>({
     firstName: "",
     lastName: "",
     email: "",
@@ -21,17 +37,19 @@ const Contact = () => {
     projectDetail: "",
   })
 
-  const [errors, setErrors] = useState({})
+  const [errors, setErrors] = useState<Errors>({})
 
-  const handleChange = (e) => {
+  const handleChange = (
+    e: ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
+  ) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
     })
   }
 
-  const validateForm = () => {
-    const newErrors = {}
+  const validateForm = (): Errors => {
+    const newErrors: Errors = {}
     if (!formData.firstName) newErrors.firstName = "First name is required"
     if (!formData.lastName) newErrors.lastName = "Last name is required"
     if (!formData.email) newErrors.email = "Email is required"
@@ -41,7 +59,7 @@ const Contact = () => {
     return newErrors
   }
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     const newErrors = validateForm()
     if (Object.keys(newErrors).length > 0) {
@@ -59,7 +77,6 @@ const Contact = () => {
       })
 
       if (response.ok) {
-        // Handle successful form submission
         alert("Form submitted successfully")
         setFormData({
           firstName: "",
@@ -73,7 +90,6 @@ const Contact = () => {
           projectDetail: "",
         })
       } else {
-        // Handle errors in form submission
         alert("Failed to submit the form")
       }
     } catch (error) {

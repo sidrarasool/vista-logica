@@ -18,7 +18,7 @@ const VistaFlair = () => {
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 3000,
-    appendDots: (dots) => (
+    appendDots: (dots: React.ReactNode) => (
       <div
         style={{
           position: "absolute",
@@ -32,7 +32,7 @@ const VistaFlair = () => {
         <ul style={{ margin: "0px" }}> {dots} </ul>
       </div>
     ),
-    customPaging: (i) => (
+    customPaging: (i: number) => (
       <div
         style={{
           width: "10px",

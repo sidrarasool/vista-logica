@@ -20,7 +20,7 @@ const PrivacyPolicy: React.FC = () => {
             </h2>
             <p className="my-5 text-white text-sm max-w-2xl text-center">
               Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry's standard
+              industry. Lorem Ipsum has been the industry&apos;s standard
             </p>
           </div>
         </div>
@@ -124,11 +124,11 @@ const PrivacyPolicy: React.FC = () => {
           </h3>
           <br />
           <p className="text-[#4D5763] text-sm">
-            "Personal information" is information we hold which is identifiable
-            as being about you. This includes information such as your name,
-            email address, identification number, or any other type of
-            information that can reasonably identify an individual, either
-            directly or indirectly.
+            Personal information is information we hold which is identifiable as
+            being about you. This includes information such as your name, email
+            address, identification number, or any other type of information
+            that can reasonably identify an individual, either directly or
+            indirectly.
           </p>
           <br />
           <p className="text-[#4D5763] text-sm">
@@ -289,10 +289,11 @@ const PrivacyPolicy: React.FC = () => {
           <br />
           <p className="text-[#4D5763] text-sm">
             We do not collect or process any personal information from you that
-            is considered "Sensitive Personal Information" under the GDPR, such
-            as personal information relating to your sexual orientation or
-            ethnic origin unless we have obtained your explicit consent, or if
-            it is being collected subject to and in accordance with the GDPR.{" "}
+            is considered &quot;Sensitive Personal Information&quot; under the
+            GDPR, such as personal information relating to your sexual
+            orientation or ethnic origin unless we have obtained your explicit
+            consent, or if it is being collected subject to and in accordance
+            with the GDPR.{" "}
           </p>
           <br />
           <p className="text-[#4D5763] text-sm">
@@ -336,7 +337,7 @@ const PrivacyPolicy: React.FC = () => {
             <li>
               to correct your personal information if it is inaccurate or
               incomplete; to delete your personal information (also known as
-              "the right to be forgotten");
+              &quot;the right to be forgotten&quot;);
             </li>
             <li>to restrict processing of your personal information;</li>
             <li>
