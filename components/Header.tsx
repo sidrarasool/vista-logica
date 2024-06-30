@@ -1,3 +1,4 @@
+"use client"
 import React, { useEffect, useState } from "react"
 import Link from "next/link"
 import VistaLogoHorizontal from "../public/assets/vista_logo_horizontal.svg"
