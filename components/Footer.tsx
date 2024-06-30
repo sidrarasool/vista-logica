@@ -1,7 +1,7 @@
 // components/Footer.tsx
 "use client"
 import React from "react"
-import VistaVerticalLogo from "../public/assets/Vista_Logo_vertical.svg"
+import VistaVerticalLogo from "../public/assets/vista_logo_vertical.svg"
 import Facebook from "../public/assets/facebook.svg"
 import Instagram from "../public/assets/instagram.svg"
 import Twitter from "../public/assets/twitter.svg"
