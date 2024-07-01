@@ -14,7 +14,7 @@ export default function Home() {
       <Header />
       <Banner />
       <div className="w-full p-5 flex flex-col items-center bg-white">
-        <p className="text-[#3E8DE3] font-semibold text-md mt-10 mb-5">
+        <p className="text-[#3E8DE3] font-semibold text-md mt-5 mb-5">
           Our Services
         </p>
         <h2 className="text-xl sm:text-3xl lg:text-5xl font-semibold text-center">

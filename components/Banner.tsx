@@ -3,7 +3,7 @@ import React from "react"
 const Banner: React.FC = () => {
   return (
     <div
-      className="relative h-screen w-full flex items-center justify-center text-center bg-cover bg-center"
+      className="relative h-[60vh] w-full flex items-center justify-center text-center bg-cover bg-center"
       style={{ backgroundImage: "url('/assets/banner_image.png')" }}
     >
       <div className="absolute inset-0 bg-black opacity-50"></div>{" "}

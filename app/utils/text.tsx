@@ -1,7 +1,7 @@
 export const cardsContent = [
   {
     imageSrc: "/assets/data_analytics.svg",
-    heading: "Data Analytics",
+    heading: "Data, Analytics & Insights",
     description: "Boosting organisational performance with actionable Insights",
     items: [
       "Data and analytics strategy",
@@ -14,7 +14,7 @@ export const cardsContent = [
   },
   {
     imageSrc: "/assets/cloud_engineering.svg",
-    heading: "Cloud engineering",
+    heading: "Cloud Enablement",
     description:
       "Drive Innovation and Optimization through Technology Modernization",
     items: [
@@ -28,7 +28,7 @@ export const cardsContent = [
   },
   {
     imageSrc: "/assets/digital_experience.svg",
-    heading: "Digital experience",
+    heading: "Digital Experience & Design",
     description: "Captivate and convert by streamlining cohesive experiences",
     items: [
       "Digital strategy and advisory",

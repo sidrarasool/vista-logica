@@ -28,7 +28,7 @@ const HorizontalBlogCard: React.FC<BlogCardProps> = ({
           className="rounded-md"
         />
       </div>
-      <div className="w-full md:w-2/3 ">
+      <div className="w-full md:w-2/3 md:ml-5 ">
         <h2 className="text-lg md:text-xl font-semibold mb-2">{title}</h2>
         <p className="mb-2 text-sm">
           By <strong>{author}</strong>

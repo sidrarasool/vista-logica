@@ -2,12 +2,8 @@
 "use client"
 import React from "react"
 import VistaVerticalLogo from "../public/assets/vista_logo_vertical.svg"
-import Facebook from "../public/assets/facebook.svg"
-import Instagram from "../public/assets/instagram.svg"
-import Twitter from "../public/assets/twitter.svg"
-import Xapp from "../public/assets/x.svg"
-import LinkedIn from "../public/assets/linkedIn.svg"
 import LocationPinIcon from "../public/assets/location_pin.svg"
+import Link from "next/link"
 
 const Footer: React.FC = () => {
   return (
@@ -33,38 +29,35 @@ const Footer: React.FC = () => {
           </a>
         </div>
         <div className="flex flex-col md:items-start space-y-4">
-          <a href="/vista-flair" className="hover:underline text-white">
+          <a href="/contact" className="hover:underline text-white">
             <h5 className=" text-white">Get in touch</h5>
           </a>
           <a href="/privacy-policy" className="hover:underline text-white">
             <h5 className=" text-white">Privacy policy</h5>
-          </a>
+          </a>{" "}
           {/* Add any additional contact info here if needed */}
         </div>
         <div className="flex flex-col items-start md:items-center space-y-4">
           <h5 className="font-bold text-white">Social Links</h5>
           <div className="flex mt-2 space-x-4">
-            <a href="https://facebook.com" aria-label="Facebook">
-              <Facebook />
-            </a>
-            <a href="https://instagram.com" aria-label="Instagram">
-              <Instagram />
-            </a>
-            <a href="https://twitter.com" aria-label="Twitter">
-              <Xapp />
-            </a>
-            <a href="https://twitter.com" aria-label="Twitter">
-              <LinkedIn />
-            </a>
+            <Link href="#" className="text-white hover:text-gray-300">
+              <i className="fab fa-facebook-f"></i>
+            </Link>
+            <Link href="#" className="text-white hover:text-gray-300">
+              <i className="fab fa-instagram"></i>
+            </Link>
+            <Link href="#" className="text-white hover:text-gray-300">
+              <i className="fab fa-twitter"></i>
+            </Link>
+            <Link href="#" className="text-white hover:text-gray-300">
+              <i className="fab fa-linkedin-in"></i>
+            </Link>
           </div>
         </div>
       </div>
       <div className="container flex justify-center mx-auto mt-10 border-t border-gray-700 pt-6 space-x-6 px-2">
         <p className=" text-sm">
-          &copy; Vista Logica 2024. All rights reserved. |
-          <a href="/privacy-policy" className="hover:underline">
-            Privacy policy
-          </a>
+          &copy; Vista Logica Pty Ltd. 2024. All rights reserved.
         </p>
       </div>
     </footer>

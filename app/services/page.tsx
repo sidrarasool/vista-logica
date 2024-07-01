@@ -266,18 +266,17 @@ const Services: React.FC = () => {
       </div>
       <section className="bg-blue-50 py-16 mt-10 flex flex-col items-center w-full">
         <h2 className="text-xl md:text-3xl font-semibold text-center mb-4 mx-2">
-          Ready to win the race in internet space?
+          Trying to cope with the digital evolution?
         </h2>
         <p className="text-center text-[#4D5763] text-md mb-8 max-w-[37rem] md:mx-auto font-poppins mx-2">
-          One small step towards technological solutions, one giant leap for
-          your brand.
+          It is time to lead pr to be left behind!
         </p>
         <Link
           href="/contact"
           className="flex items-center text-white  px-3 py-2 rounded-md border-2 text-sm font-medium bg-[#3E8DE3] border-none"
         >
           <PhoneIcon className="mr-1" />
-          Get in touch
+          Reach out
         </Link>
       </section>
       <Footer />

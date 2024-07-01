@@ -16,7 +16,7 @@ const Card: React.FC<CardProps> = ({
   description,
 }) => {
   return (
-    <div className="border rounded-lg p-6 max-w-md mx-auto">
+    <div className="border rounded-lg p-6 max-w-md h-[33rem] mx-auto">
       <div className="flex justify-center">
         <Image
           src={imageSrc}

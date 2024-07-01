@@ -4,8 +4,7 @@ import Header from "@/components/Header"
 import Link from "next/link"
 import React, { useState, ChangeEvent, FormEvent } from "react"
 
-const jobTitles = ["Developer", "Manager", "Designer", "Marketing Specialist"]
-const countries = ["United States", "Canada", "United Kingdom", "Australia"]
+const countries = ["Australia", "United States", "Canada", "United Kingdom"]
 const industries = ["Technology", "Finance", "Healthcare", "Education"]
 
 interface FormData {
@@ -13,7 +12,6 @@ interface FormData {
   lastName: string
   email: string
   mobile: string
-  jobTitle: string
   companyName: string
   country: string
   industry: string
@@ -30,7 +28,6 @@ const Contact: React.FC = () => {
     lastName: "",
     email: "",
     mobile: "",
-    jobTitle: "",
     companyName: "",
     country: "",
     industry: "",
@@ -53,8 +50,6 @@ const Contact: React.FC = () => {
     if (!formData.firstName) newErrors.firstName = "First name is required"
     if (!formData.lastName) newErrors.lastName = "Last name is required"
     if (!formData.email) newErrors.email = "Email is required"
-    if (!formData.jobTitle) newErrors.jobTitle = "Job title is required"
-    if (!formData.country) newErrors.country = "Country is required"
 
     return newErrors
   }
@@ -83,7 +78,6 @@ const Contact: React.FC = () => {
           lastName: "",
           email: "",
           mobile: "",
-          jobTitle: "",
           companyName: "",
           country: "",
           industry: "",
@@ -189,27 +183,6 @@ const Contact: React.FC = () => {
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
                   <div>
-                    <label className="block text-gray-700">Job title*</label>
-                    <select
-                      name="jobTitle"
-                      value={formData.jobTitle}
-                      onChange={handleChange}
-                      className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
-                    >
-                      <option value="">Select job title</option>
-                      {jobTitles.map((title, index) => (
-                        <option key={index} value={title}>
-                          {title}
-                        </option>
-                      ))}
-                    </select>
-                    {errors.jobTitle && (
-                      <span className="text-red-600 text-sm">
-                        {errors.jobTitle}
-                      </span>
-                    )}
-                  </div>
-                  <div>
                     <label className="block text-gray-700">Company name</label>
                     <input
                       type="text"
@@ -220,10 +193,8 @@ const Contact: React.FC = () => {
                       placeholder="Write your company name"
                     />
                   </div>
-                </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
                   <div>
-                    <label className="block text-gray-700">Country*</label>
+                    <label className="block text-gray-700">Country</label>
                     <select
                       name="country"
                       value={formData.country}
@@ -243,6 +214,8 @@ const Contact: React.FC = () => {
                       </span>
                     )}
                   </div>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
                   <div>
                     <label className="block text-gray-700">Industry</label>
                     <select
@@ -282,21 +255,16 @@ const Contact: React.FC = () => {
             </div>
             <div className="w-full md:w-1/4 md:px-4">
               <div className="static bg-[#011021] w-full h-full md:w-[30%] md:h-[80%] text-white p-2 md:p-6 rounded-md shadow-lg md:absolute md:top-12 md:right-[-7rem] md:ml-8">
-                <h2 className="text-xl font-semibold mb-4">
-                  Contact information
-                </h2>
-                <p className="mb-16 text-sm">
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting.
-                </p>
+                <h2 className="text-xl font-semibold mb-4">Stay in touch</h2>
                 <p className="mb-8 text-sm">
-                  <i className="fa-solid fa-phone mr-2"></i> XXXXXX-XXXX-XXXX
+                  We are keen to learn more about your journey towards tech and
+                  digital transformations
                 </p>
-                <p className="mb-8 text-sm">
+                <p className="mb-5 text-sm">
                   <i className="fa-sharp fa-solid fa-envelope mr-2"></i>{" "}
-                  Companyname@gmail.com
+                  info@vistalogica.com.au
                 </p>
-                <p className="mb-8 text-lg font-semibold">Social Links</p>
+                <p className="mb-5 text-lg font-semibold">Social Links</p>
                 <div className="flex space-x-4 mt-4">
                   <Link href="#" className="text-white hover:text-gray-300">
                     <i className="fab fa-facebook-f"></i>
