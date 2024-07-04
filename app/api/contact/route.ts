@@ -1,7 +1,7 @@
 export async function POST(req: Request) {
   const body = await req.json()
 
-  await fetch("process.env.FORMSPREE_URL", {
+  await fetch(process.env.FORMSPREE_URL!, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
