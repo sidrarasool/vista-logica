@@ -5,8 +5,32 @@ import Link from "next/link"
 import React, { useState, ChangeEvent, FormEvent } from "react"
 
 const countries = ["Australia", "United States", "Canada", "United Kingdom"]
-const industries = ["Technology", "Finance", "Healthcare", "Education"]
-
+const industries = [
+  "Technology",
+  "Finance",
+  "Healthcare",
+  "Education",
+  "Telecom",
+  "Retail",
+  "Transport & Logistics",
+  "Public Sector",
+  "Real Estate",
+  "Manufacturing",
+  "Energy",
+  "Agriculture",
+  "Entertainment",
+  "Media",
+  "Hospitality",
+  "Automotive",
+  "Construction",
+  "Insurance",
+  "Aerospace",
+  "Food & Beverage",
+  "Pharmaceuticals",
+  "Chemicals",
+  "Mining",
+  "Other",
+]
 interface FormData {
   firstName: string
   lastName: string
