@@ -6,36 +6,20 @@ import HorizontalBlogCard from "@/components/HorizontalBlogCard" // Import the H
 import BlogCard from "@/components/BlogCard"
 import ImageCarousel from "@/components/ImageCarousel"
 
-const VistaFlair = () => {
-  const carouselImages = [
-    {
-      src: "/assets/carousel1.png",
-      title:
-        "Title 1. Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-      author: "Sidra Rasool",
-      description:
-        "Description 1. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries",
-      buttonText: "Read more",
-    },
-    {
-      src: "/assets/carousel2.png",
-      title:
-        "Title 2. Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-      author: "Sidra Rasool",
-      description:
-        "Description 2. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries",
-      buttonText: "Read more",
-    },
-    {
-      src: "/assets/carousel3.png",
-      title:
-        "Title 3. Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-      author: "Sidra Rasool",
-      description:
-        "Description 3. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries",
-      buttonText: "Read more",
-    },
-  ]
+const VistaFlair = async () => {
+  const featuredBlogsReponse = await fetch(
+    `${process.env.STRAPI_BASE_URL}/api/blogs?populate=*&filters[isFeatured][$eq]=true`,
+    { headers: { Authorization: `Bearer ${process.env.STRAPI_API_KEY}` } }
+  )
+  const { data: featuredBlogs } = await featuredBlogsReponse.json()
+
+  const carouselImages = (featuredBlogs ?? []).map((blog: any) => ({
+    src: `${process.env.STRAPI_BASE_URL}${blog.attributes.featuredImage.data.attributes.formats.medium.url}`,
+    title: blog.attributes.title,
+    author: blog.attributes.author,
+    description: blog.attributes.summary,
+    buttonLink: blog.attributes.slug,
+  }))
 
   const blogCards = [
     {

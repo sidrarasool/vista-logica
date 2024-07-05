@@ -4,13 +4,14 @@ import Slider from "react-slick"
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
 import Image from "next/image"
+import Link from "next/link"
 
 type ImageObject = {
   src: string
   title: string
   author: string
   description: string
-  buttonText: string
+  buttonLink: string
 }
 
 const ImageCarousel: React.FC<{ images: ImageObject[] }> = ({ images }) => {
@@ -52,13 +53,10 @@ const ImageCarousel: React.FC<{ images: ImageObject[] }> = ({ images }) => {
     <Slider {...settings} className="w-full ">
       {images.map((image, index) => (
         <div key={index} className="relative w-full h-[500px]">
-          <Image
+          <img
             src={image.src}
             alt={`Slide ${index + 1}`}
-            layout="fill"
-            objectFit="cover"
-            priority={index === 0}
-            className="rounded-md"
+            className="rounded-md w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-black opacity-50 rounded-md"></div>
           <div className="absolute inset-0 flex items-end md:items-center justify-end rounded-md">
@@ -72,9 +70,12 @@ const ImageCarousel: React.FC<{ images: ImageObject[] }> = ({ images }) => {
               <p className="mb-1 md:mb-6 text-xs md:text-sm">
                 {image.description}
               </p>
-              <button className="bg-transparent text-white px-2 md:px-4  py-1 md:py-2 border-2 rounded-md hover:shadow-sm w-max">
-                {image.buttonText}
-              </button>
+              <Link
+                href={`/vista-flair/${image.buttonLink}`}
+                className="bg-transparent text-white px-2 md:px-4  py-1 md:py-2 border-2 rounded-md hover:shadow-sm w-max"
+              >
+                Read more
+              </Link>
             </div>
           </div>
         </div>
