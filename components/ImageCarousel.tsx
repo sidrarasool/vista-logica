@@ -71,7 +71,7 @@ const ImageCarousel: React.FC<{ images: ImageObject[] }> = ({ images }) => {
                 {image.description}
               </p>
               <Link
-                href={`/vista-flair/${image.buttonLink}`}
+                href={image.buttonLink}
                 className="bg-transparent text-white px-2 md:px-4  py-1 md:py-2 border-2 rounded-md hover:shadow-sm w-max"
               >
                 Read more

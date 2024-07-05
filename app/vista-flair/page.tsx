@@ -5,6 +5,7 @@ import React from "react"
 import HorizontalBlogCard from "@/components/HorizontalBlogCard" // Import the HorizontalBlogCard component
 import BlogCard from "@/components/BlogCard"
 import ImageCarousel from "@/components/ImageCarousel"
+import { format } from "date-fns"
 
 const VistaFlair = async () => {
   const featuredBlogsReponse = await fetch(
@@ -21,79 +22,35 @@ const VistaFlair = async () => {
     buttonLink: blog.attributes.slug,
   }))
 
-  const blogCards = [
-    {
-      imageSrc: "/assets/blog4.png",
-      title:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-      author: "Sidra Rasool",
-      description:
-        "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s...",
-      date: "12/12/2024",
-    },
-    {
-      imageSrc: "/assets/blog5.png",
-      title:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-      author: "Sidra Rasool",
-      description:
-        "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s...",
-      date: "12/12/2024",
-    },
-    {
-      imageSrc: "/assets/blog6.png",
-      title:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-      author: "Sidra Rasool",
-      description:
-        "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s...",
-      date: "12/12/2024",
-    },
-  ]
-  const blogData = [
-    {
-      image: "/assets/blog1.svg",
-      title: "Types of Blogs",
-      description:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting.",
-      date: "12/12/2024",
-    },
-    {
-      image: "/assets/blog2.svg",
-      title: "Lorem Ipsum is simply dummy text of the printing and typesetting",
-      description:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting.",
-      date: "12/12/2024",
-    },
-    {
-      image: "/assets/blog3.svg",
-      title: "Lorem Ipsum is simply dummy text of the printing and typesetting",
-      description:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting.",
-      date: "12/12/2024",
-    },
-    {
-      image: "/assets/blog4.png",
-      title: "Types of Blogs",
-      description:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting.",
-      date: "12/12/2024",
-    },
-    {
-      image: "/assets/blog5.png",
-      title: "Lorem Ipsum is simply dummy text of the printing and typesetting",
-      description:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting.",
-      date: "12/12/2024",
-    },
-    {
-      image: "/assets/blog6.png",
-      title: "Lorem Ipsum is simply dummy text of the printing and typesetting",
-      description:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting.",
-      date: "12/12/2024",
-    },
-  ]
+  const notFeaturedBlogsReponse = await fetch(
+    `${process.env.STRAPI_BASE_URL}/api/blogs?populate=*&filters[isFeatured][$eq]=false`,
+    { headers: { Authorization: `Bearer ${process.env.STRAPI_API_KEY}` } }
+  )
+  const { data: notFeaturedbBlogs } = await notFeaturedBlogsReponse.json()
+
+  const blogData = (notFeaturedbBlogs ?? []).map((blog: any) => ({
+    imageSrc: `${process.env.STRAPI_BASE_URL}${blog.attributes.featuredImage.data.attributes.formats.medium.url}`,
+    title: blog.attributes.title,
+    author: blog.attributes.author,
+    description: blog.attributes.summary,
+    buttonLink: `/vista-flair/${blog.attributes.slug}`,
+    date: format(new Date(blog.attributes.createdAt), "dd/MM/yyyy"),
+  }))
+
+  const allBlogsReponse = await fetch(
+    `${process.env.STRAPI_BASE_URL}/api/blogs?populate=*`,
+    { headers: { Authorization: `Bearer ${process.env.STRAPI_API_KEY}` } }
+  )
+  const { data: allBlogs } = await allBlogsReponse.json()
+
+  const blogCards = (allBlogs ?? []).map((blog: any) => ({
+    image: `${process.env.STRAPI_BASE_URL}${blog.attributes.featuredImage.data.attributes.formats.medium.url}`,
+    title: blog.attributes.title,
+    author: blog.attributes.author,
+    description: blog.attributes.summary,
+    buttonLink: `/vista-flair/${blog.attributes.slug}`,
+    date: format(new Date(blog.attributes.createdAt), "dd/MM/yyyy"),
+  }))
 
   return (
     <div className="flex flex-col min-h-screen w-full items-center justify-between overflow-x-hidden bg-white">
@@ -115,13 +72,14 @@ const VistaFlair = async () => {
             </div>
           </div>
         </div>
-        {blogCards.map((card, index) => (
+        {blogCards.map((card: any, index: number) => (
           <HorizontalBlogCard
             key={index}
-            imageSrc={card.imageSrc}
+            imageSrc={card.image}
             title={card.title}
             author={card.author}
             description={card.description}
+            buttonLink={card.buttonLink}
             date={card.date}
           />
         ))}
@@ -139,10 +97,10 @@ const VistaFlair = async () => {
           <h2 className="text-xl font-semibold">Flairs in focus</h2>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {blogData.map((blog, index) => (
+          {blogData.map((blog: any, index: number) => (
             <BlogCard
               key={index}
-              image={blog.image}
+              image={blog.imageSrc}
               title={blog.title}
               description={blog.description}
               date={blog.date}

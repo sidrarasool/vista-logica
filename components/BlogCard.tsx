@@ -16,7 +16,7 @@ const BlogCard: React.FC<BlogCardProps> = ({
 }) => {
   return (
     <div className="bg-white rounded-lg shadow-md overflow-hidden w-full border">
-      <Image
+      <img
         src={image}
         alt={title}
         width={600}

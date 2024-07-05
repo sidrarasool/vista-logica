@@ -1,12 +1,14 @@
 // HorizontalBlogCard.tsx
 import React from "react"
 import Image from "next/image"
+import Link from "next/link"
 
 interface BlogCardProps {
   imageSrc: string
   title: string
   author: string
   description: string
+  buttonLink: string
   date: string
 }
 
@@ -15,12 +17,13 @@ const HorizontalBlogCard: React.FC<BlogCardProps> = ({
   title,
   author,
   description,
+  buttonLink,
   date,
 }) => {
   return (
     <div className="flex flex-col md:flex-row items-center mb-8 p-4 border rounded-lg shadow-sm">
       <div className="w-full md:w-1/3 mb-4 md:mb-0">
-        <Image
+        <img
           src={imageSrc}
           alt={title}
           width={600}
@@ -35,9 +38,11 @@ const HorizontalBlogCard: React.FC<BlogCardProps> = ({
         </p>
         <p className="mb-4 text-sm">{description}</p>
         <div className="flex items-center justify-between">
-          <p className="text-[#589CE7] text-sm">
-            Read More <i className="fa-solid fa-arrow-right"></i>
-          </p>
+          <Link href={buttonLink}>
+            <p className="text-[#589CE7] text-sm">
+              Read More <i className="fa-solid fa-arrow-right"></i>
+            </p>
+          </Link>
           <p className="text-sm text-gray-600">{date}</p>
         </div>
       </div>
