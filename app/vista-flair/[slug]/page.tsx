@@ -1,7 +1,6 @@
 import Footer from "@/components/Footer"
 import Header from "@/components/Header"
 import React from "react"
-import Image from "next/image"
 import BlogCard from "@/components/BlogCard"
 import Facebook from "@/public/assets/facebook.svg"
 import Instagram from "@/public/assets/instagram.svg"
@@ -16,7 +15,7 @@ type Props = {
 
 const BlogDetail = async ({ params }: Props) => {
   const blogResponse = await fetch(
-    `${process.env.STRAPI_BASE_URL}/api/blogs?populate=*&filters[slug][$eq]=${params.slug}`,
+    `${process.env.STRAPI_BASE_URL}/api/blogs?populate=author.profileImage,featuredImage&filters[slug][$eq]=${params.slug}`,
     { headers: { Authorization: `Bearer ${process.env.STRAPI_API_KEY}` } }
   )
   const { data: blogs } = await blogResponse.json()
@@ -38,6 +37,8 @@ const BlogDetail = async ({ params }: Props) => {
     description: blog.attributes.summary,
     buttonLink: blog.attributes.slug,
   }))
+
+  console.log()
 
   return (
     <div className="flex flex-col min-h-screen w-full items-center justify-between overflow-x-hidden bg-white">
@@ -62,7 +63,6 @@ const BlogDetail = async ({ params }: Props) => {
           <div className="text-gray-400 mb-6 w-full text-right">
             {format(new Date(blog.attributes.createdAt), "dd/MM/yyyy")}
           </div>
-
           <img
             src={`${process.env.STRAPI_BASE_URL}${blog.attributes.featuredImage.data.attributes.formats.medium.url}`}
             alt={blog.attributes.title}
@@ -70,9 +70,40 @@ const BlogDetail = async ({ params }: Props) => {
             height={400}
             className="rounded-md object-cover w-full"
           />
-
           <div className="text-sm md:text-lg leading-relaxed mt-6">
             <BlocksRenderer content={blog.attributes.content} />
+          </div>
+
+          <div className="-mx-2 md:-mx-8 px-6 py-4 bg-[#CAD3DD] bg-opacity-15 mt-14">
+            <h2 className="text-2xl font-semibold">About the author</h2>
+
+            <div className="flex items-center gap-4 mt-6">
+              <div className="rounded-full w-24 h-24 overflow-hidden">
+                <img
+                  alt=""
+                  src={`${process.env.STRAPI_BASE_URL}${blog.attributes.author.data.attributes.profileImage.data.attributes.url}`}
+                  className="h-full w-full object-cover"
+                />
+              </div>
+              <div className="text-[#011021]">
+                <h2 className="text-2xl font-normal">
+                  {blog.attributes.author.data.attributes.name}
+                </h2>
+                <p className="text-lg text-[#4D5763]">
+                  {blog.attributes.author.data.attributes.designation}
+                </p>
+                <div className="flex grayscale gap-2 mt-2">
+                  <Facebook className="w-4 h-4" />
+                  <XApp className="w-4 h-4" />
+                  <LinkedIn className="w-4 h-4" />
+                </div>
+              </div>
+            </div>
+            <div className="mt-8">
+              <p className="text-lg font-normal">
+                {blog.attributes.author.data.attributes.description}
+              </p>
+            </div>
           </div>
         </div>
         <div className="w-full md:w-1/4 pt-4">
@@ -84,26 +115,26 @@ const BlogDetail = async ({ params }: Props) => {
                   href="#"
                   className="text-[#4D5763] text-xs flex flex-col items-center gap-y-2"
                 >
-                  <Facebook /> Facebook
+                  <Facebook className="w-8 h-8" /> Facebook
                 </a>
                 <a
                   href="#"
                   className="text-[#4D5763] text-xs flex flex-col items-center gap-y-2"
                 >
-                  <Instagram />
+                  <Instagram className="w-8 h-8" />
                   Instagram
                 </a>
                 <a
                   href="#"
                   className="text-[#4D5763] text-xs flex flex-col items-center gap-y-2"
                 >
-                  <XApp /> X
+                  <XApp className="w-8 h-8" /> X
                 </a>
                 <a
                   href="#"
                   className="text-[#4D5763] text-xs flex flex-col items-center gap-y-2"
                 >
-                  <LinkedIn /> LinkedIn
+                  <LinkedIn className="w-8 h-8" /> LinkedIn
                 </a>
               </div>
             </div>
