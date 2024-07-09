@@ -27,7 +27,21 @@ const blogData = [
   },
 ]
 
-const BlogSection: React.FC = () => {
+const BlogSection: React.FC = async () => {
+  const featuredBlogsReponse = await fetch(
+    `${process.env.STRAPI_BASE_URL}/api/blogs?populate=*&filters[isFeatured][$eq]=true`,
+    { headers: { Authorization: `Bearer ${process.env.STRAPI_API_KEY}` } }
+  )
+  const { data: featuredBlogsJSON } = await featuredBlogsReponse.json()
+
+  const featuredBlogs = (featuredBlogsJSON ?? []).map((blog: any) => ({
+    src: `${process.env.STRAPI_BASE_URL}${blog.attributes.featuredImage.data.attributes.formats.medium.url}`,
+    title: blog.attributes.title,
+    author: blog.attributes.author,
+    description: blog.attributes.summary,
+    buttonLink: blog.attributes.slug,
+  }))
+
   return (
     <section className="pt-16 py-8 px-4 bg-white w-full flex flex-col items-center ">
       <div className="text-center mb-12">
@@ -44,13 +58,15 @@ const BlogSection: React.FC = () => {
       </div>
       <div className="w-3/4 mx-24 mb-1">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {blogData.map((blog, index) => (
+          {featuredBlogs.map((blog: any, index: number) => (
             <BlogCard
               key={index}
-              image={blog.image}
+              image={blog.src}
               title={blog.title}
               description={blog.description}
               date={blog.date}
+              author={blog.author}
+              buttonLink={blog.buttonLink}
             />
           ))}
         </div>

@@ -104,6 +104,8 @@ const VistaFlair = async () => {
               title={blog.title}
               description={blog.description}
               date={blog.date}
+              author={blog.author}
+              buttonLink={blog.buttonLink}
             />
           ))}
         </div>

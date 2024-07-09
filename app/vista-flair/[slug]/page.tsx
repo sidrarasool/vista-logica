@@ -39,8 +39,6 @@ const BlogDetail = async ({ params }: Props) => {
     buttonLink: blog.attributes.slug,
   }))
 
-  console.log(JSON.stringify(blog.attributes.content))
-
   return (
     <div className="flex flex-col min-h-screen w-full items-center justify-between overflow-x-hidden bg-white">
       <Header backgroundColor="#FFF" />
