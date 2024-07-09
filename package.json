@@ -11,6 +11,7 @@
   "dependencies": {
     "@fortawesome/fontawesome-free": "^6.5.2",
     "@strapi/blocks-react-renderer": "^1.0.1",
+    "@next/third-parties": "^14.2.4",
     "@svgr/webpack": "^8.1.0",
     "date-fns": "^3.6.0",
     "next": "14.2.3",

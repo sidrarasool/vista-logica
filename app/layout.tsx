@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import { Afacad } from "next/font/google"
+import { GoogleAnalytics } from "@next/third-parties/google"
 import "./globals.css"
 import "@fortawesome/fontawesome-free/css/all.min.css"
 
@@ -19,6 +20,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={afacad.className}>{children}</body>
+      <GoogleAnalytics gaId={process.env.GOOGLE_G_TAG!} />
     </html>
   )
 }

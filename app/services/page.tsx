@@ -269,7 +269,7 @@ const Services: React.FC = () => {
           Trying to cope with the digital evolution?
         </h2>
         <p className="text-center text-[#4D5763] text-md mb-8 max-w-[37rem] md:mx-auto font-poppins mx-2">
-          It is time to lead pr to be left behind!
+          It is time to lead or to be left behind!
         </p>
         <Link
           href="/contact"
