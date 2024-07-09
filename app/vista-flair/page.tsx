@@ -17,7 +17,7 @@ const VistaFlair = async () => {
   const carouselImages = (featuredBlogs ?? []).map((blog: any) => ({
     src: `${process.env.STRAPI_BASE_URL}${blog.attributes.featuredImage.data.attributes.formats.medium.url}`,
     title: blog.attributes.title,
-    author: blog.attributes.author,
+    author: blog.attributes.author.data.attributes.name,
     description: blog.attributes.summary,
     buttonLink: blog.attributes.slug,
   }))
@@ -31,7 +31,7 @@ const VistaFlair = async () => {
   const blogData = (notFeaturedbBlogs ?? []).map((blog: any) => ({
     imageSrc: `${process.env.STRAPI_BASE_URL}${blog.attributes.featuredImage.data.attributes.formats.medium.url}`,
     title: blog.attributes.title,
-    author: blog.attributes.author,
+    author: blog.attributes.author.data.attributes.name,
     description: blog.attributes.summary,
     buttonLink: `/vista-flair/${blog.attributes.slug}`,
     date: format(new Date(blog.attributes.createdAt), "dd/MM/yyyy"),
@@ -46,7 +46,7 @@ const VistaFlair = async () => {
   const blogCards = (allBlogs ?? []).map((blog: any) => ({
     image: `${process.env.STRAPI_BASE_URL}${blog.attributes.featuredImage.data.attributes.formats.medium.url}`,
     title: blog.attributes.title,
-    author: blog.attributes.author,
+    author: blog.attributes.author.data.attributes.name,
     description: blog.attributes.summary,
     buttonLink: `/vista-flair/${blog.attributes.slug}`,
     date: format(new Date(blog.attributes.createdAt), "dd/MM/yyyy"),

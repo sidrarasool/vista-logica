@@ -34,7 +34,7 @@ const BlogDetail = async ({ params }: Props) => {
     slug: blog.attributes.slug,
     src: `${process.env.STRAPI_BASE_URL}${blog.attributes.featuredImage.data.attributes.formats.medium.url}`,
     title: blog.attributes.title,
-    author: blog.attributes.author,
+    author: blog.attributes.author.data.attributes.name,
     description: blog.attributes.summary,
     buttonLink: blog.attributes.slug,
   }))
