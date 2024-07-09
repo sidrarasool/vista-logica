@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^6.5.2",
+    "@strapi/blocks-react-renderer": "^1.0.1",
     "@svgr/webpack": "^8.1.0",
     "date-fns": "^3.6.0",
     "next": "14.2.3",
@@ -26,6 +27,7 @@
     "@types/react-slick": "^0.23.13",
     "eslint": "^8",
     "eslint-config-next": "14.2.3",
+    "husky": "^9.0.11",
     "postcss": "^8",
     "tailwindcss": "^3.4.1",
     "typescript": "^5"
