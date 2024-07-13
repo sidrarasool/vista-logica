@@ -31,14 +31,12 @@ const BlogDetail = async ({ params }: Props) => {
 
   const featuredBlogs = (featuredBlogsJSON ?? []).map((blog: any) => ({
     slug: blog.attributes.slug,
-    src: `${process.env.STRAPI_BASE_URL}${blog.attributes.featuredImage.data.attributes.formats.medium.url}`,
+    src: `${process.env.STRAPI_BASE_URL}${blog.attributes.featuredImage.data.attributes.url}`,
     title: blog.attributes.title,
     author: blog.attributes.author.data.attributes.name,
     description: blog.attributes.summary,
     buttonLink: blog.attributes.slug,
   }))
-
-  console.log()
 
   return (
     <div className="flex flex-col min-h-screen w-full items-center justify-between overflow-x-hidden bg-white">
@@ -64,7 +62,7 @@ const BlogDetail = async ({ params }: Props) => {
             {format(new Date(blog.attributes.createdAt), "dd/MM/yyyy")}
           </div>
           <img
-            src={`${process.env.STRAPI_BASE_URL}${blog.attributes.featuredImage.data.attributes.formats.medium.url}`}
+            src={`${process.env.STRAPI_BASE_URL}${blog.attributes.featuredImage.data.attributes.url}`}
             alt={blog.attributes.title}
             width={600}
             height={400}
