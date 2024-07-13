@@ -35,7 +35,7 @@ const BlogSection: React.FC = async () => {
   const { data: featuredBlogsJSON } = await featuredBlogsReponse.json()
 
   const featuredBlogs = (featuredBlogsJSON ?? []).map((blog: any) => ({
-    src: `${process.env.STRAPI_BASE_URL}${blog.attributes.featuredImage.data.attributes.formats.medium.url}`,
+    src: `${process.env.STRAPI_BASE_URL}${blog.attributes.featuredImage.data.attributes.url}`,
     title: blog.attributes.title,
     author: blog.attributes.author.data.attributes.name,
     description: blog.attributes.summary,

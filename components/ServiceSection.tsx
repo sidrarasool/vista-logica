@@ -57,15 +57,15 @@ const ServiceSection: React.FC<ServiceSectionProps> = ({
             ?.services.map((service) => (
               <div
                 key={service.name}
-                className="flex flex-col items-center justify-between py-6 border border-gray-200 rounded-md w-max"
+                className="flex items-center justify-center py-6 px-6 border border-gray-200 rounded-md w-max"
               >
                 <Image
                   src={service.icon}
                   alt={service.name}
-                  width={45}
-                  height={45}
+                  width={35}
+                  height={35}
                 />
-                <p className="mt-4 px-1 text-sm text-center text-[#4D5763] w-40">
+                <p className="px-1 text-md text-center text-[#4D5763] w-40">
                   {service.name}
                 </p>
               </div>

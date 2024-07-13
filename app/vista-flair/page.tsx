@@ -15,7 +15,7 @@ const VistaFlair = async () => {
   const { data: featuredBlogs } = await featuredBlogsReponse.json()
 
   const carouselImages = (featuredBlogs ?? []).map((blog: any) => ({
-    src: `${process.env.STRAPI_BASE_URL}${blog.attributes.featuredImage.data.attributes.formats.medium.url}`,
+    src: `${process.env.STRAPI_BASE_URL}${blog.attributes.featuredImage.data.attributes.url}`,
     title: blog.attributes.title,
     author: blog.attributes.author.data.attributes.name,
     description: blog.attributes.summary,
@@ -29,7 +29,7 @@ const VistaFlair = async () => {
   const { data: notFeaturedbBlogs } = await notFeaturedBlogsReponse.json()
 
   const blogData = (notFeaturedbBlogs ?? []).map((blog: any) => ({
-    imageSrc: `${process.env.STRAPI_BASE_URL}${blog.attributes.featuredImage.data.attributes.formats.medium.url}`,
+    imageSrc: `${process.env.STRAPI_BASE_URL}${blog.attributes.featuredImage.data.attributes.url}`,
     title: blog.attributes.title,
     author: blog.attributes.author.data.attributes.name,
     description: blog.attributes.summary,
@@ -44,7 +44,7 @@ const VistaFlair = async () => {
   const { data: allBlogs } = await allBlogsReponse.json()
 
   const blogCards = (allBlogs ?? []).map((blog: any) => ({
-    image: `${process.env.STRAPI_BASE_URL}${blog.attributes.featuredImage.data.attributes.formats.medium.url}`,
+    image: `${process.env.STRAPI_BASE_URL}${blog.attributes.featuredImage.data.attributes.url}`,
     title: blog.attributes.title,
     author: blog.attributes.author.data.attributes.name,
     description: blog.attributes.summary,
