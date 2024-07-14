@@ -51,13 +51,13 @@ const ServiceSection: React.FC<ServiceSectionProps> = ({
             </button>
           ))}
         </div>
-        <div className="grid justify-items-center grid-cols-1 sm:grid-cols-3 lg:grid-cols-3 gap-y-4 mt-8">
+        <div className="grid justify-items-center grid-cols-1 sm:grid-cols-3 lg:grid-cols-3 2xl:grid-cols-4 gap-y-4 mt-8">
           {tabs
             .find((tab) => tab.name === activeTab)
             ?.services.map((service) => (
               <div
                 key={service.name}
-                className="flex items-center justify-center py-6 px-6 border border-gray-200 rounded-md w-max"
+                className="flex items-center justify-center py-6 px-2 m-1 xl:mx-5 border border-gray-200 rounded-md w-[95%]"
               >
                 <Image
                   src={service.icon}
@@ -65,7 +65,7 @@ const ServiceSection: React.FC<ServiceSectionProps> = ({
                   width={35}
                   height={35}
                 />
-                <p className="px-1 text-md text-center text-[#4D5763] w-40">
+                <p className="px-1 text-sm lg: text-md text-center text-[#4D5763] w-40 sm:w-28 xl:w-full">
                   {service.name}
                 </p>
               </div>
