@@ -3,30 +3,6 @@
 import React from "react"
 import BlogCard from "./BlogCard"
 
-const blogData = [
-  {
-    image: "/assets/blog1.svg",
-    title: "Types of Blogs",
-    description:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting.",
-    date: "12/12/2024",
-  },
-  {
-    image: "/assets/blog2.svg",
-    title: "Lorem Ipsum is simply dummy text of the printing and typesetting",
-    description:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting.",
-    date: "12/12/2024",
-  },
-  {
-    image: "/assets/blog3.svg",
-    title: "Lorem Ipsum is simply dummy text of the printing and typesetting",
-    description:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting.",
-    date: "12/12/2024",
-  },
-]
-
 const BlogSection: React.FC = async () => {
   const featuredBlogsReponse = await fetch(
     `${process.env.STRAPI_BASE_URL}/api/blogs?populate=*&filters[isFeatured][$eq]=true`,
