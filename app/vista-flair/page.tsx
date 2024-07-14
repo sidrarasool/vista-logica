@@ -15,21 +15,28 @@ const VistaFlair = async () => {
   const { data: featuredBlogs } = await featuredBlogsReponse.json()
 
   const carouselImages = (featuredBlogs ?? []).map((blog: any) => ({
-    src: `${process.env.STRAPI_BASE_URL}${blog.attributes.featuredImage.data.attributes.url}`,
+    src: `${blog.attributes.featuredImage.data.attributes.url}`,
     title: blog.attributes.title,
     author: blog.attributes.author.data.attributes.name,
     description: blog.attributes.summary,
     buttonLink: `/vista-flair/${blog.attributes.slug}`,
   }))
 
-  const notFeaturedBlogsReponse = await fetch(
-    `${process.env.STRAPI_BASE_URL}/api/blogs?populate=*&filters[isFeatured][$eq]=false`,
+  // const notFeaturedBlogsReponse = await fetch(
+  //   `${process.env.STRAPI_BASE_URL}/api/blogs?populate=*&filters[isFeatured][$eq]=false`,
+  //   { headers: { Authorization: `Bearer ${process.env.STRAPI_API_KEY}` } }
+  // )
+  // const { data: notFeaturedbBlogs } = await notFeaturedBlogsReponse.json()
+
+  const allBlogsReponse = await fetch(
+    `${process.env.STRAPI_BASE_URL}/api/blogs?populate=*`,
     { headers: { Authorization: `Bearer ${process.env.STRAPI_API_KEY}` } }
   )
-  const { data: notFeaturedbBlogs } = await notFeaturedBlogsReponse.json()
 
-  const blogData = (notFeaturedbBlogs ?? []).map((blog: any) => ({
-    imageSrc: `${process.env.STRAPI_BASE_URL}${blog.attributes.featuredImage.data.attributes.url}`,
+  const { data: allBlogs } = await allBlogsReponse.json()
+
+  const blogData = (allBlogs ?? []).map((blog: any) => ({
+    imageSrc: `${blog.attributes.featuredImage.data.attributes.url}`,
     title: blog.attributes.title,
     author: blog.attributes.author.data.attributes.name,
     description: blog.attributes.summary,
@@ -37,14 +44,8 @@ const VistaFlair = async () => {
     date: format(new Date(blog.attributes.createdAt), "dd/MM/yyyy"),
   }))
 
-  const allBlogsReponse = await fetch(
-    `${process.env.STRAPI_BASE_URL}/api/blogs?populate=*`,
-    { headers: { Authorization: `Bearer ${process.env.STRAPI_API_KEY}` } }
-  )
-  const { data: allBlogs } = await allBlogsReponse.json()
-
-  const blogCards = (allBlogs ?? []).map((blog: any) => ({
-    image: `${process.env.STRAPI_BASE_URL}${blog.attributes.featuredImage.data.attributes.url}`,
+  const blogCards = (featuredBlogs ?? []).map((blog: any) => ({
+    image: `${blog.attributes.featuredImage.data.attributes.url}`,
     title: blog.attributes.title,
     author: blog.attributes.author.data.attributes.name,
     description: blog.attributes.summary,
@@ -94,7 +95,9 @@ const VistaFlair = async () => {
       </div>
       <div className="w-3/4 mx-24 mb-16">
         <div className="flex  items-center mb-4">
-          <h2 className="text-xl font-semibold">Flairs in focus</h2>
+          <h2 className="text-xl font-semibold">
+            Flairs you might have missed
+          </h2>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {blogData.map((blog: any, index: number) => (

@@ -31,7 +31,7 @@ const BlogDetail = async ({ params }: Props) => {
 
   const featuredBlogs = (featuredBlogsJSON ?? []).map((blog: any) => ({
     slug: blog.attributes.slug,
-    src: `${process.env.STRAPI_BASE_URL}${blog.attributes.featuredImage.data.attributes.url}`,
+    src: `${blog.attributes.featuredImage.data.attributes.url}`,
     title: blog.attributes.title,
     author: blog.attributes.author.data.attributes.name,
     description: blog.attributes.summary,
@@ -62,7 +62,7 @@ const BlogDetail = async ({ params }: Props) => {
             {format(new Date(blog.attributes.createdAt), "dd/MM/yyyy")}
           </div>
           <img
-            src={`${process.env.STRAPI_BASE_URL}${blog.attributes.featuredImage.data.attributes.url}`}
+            src={`${blog.attributes.featuredImage.data.attributes.url}`}
             alt={blog.attributes.title}
             width={600}
             height={400}
@@ -79,7 +79,7 @@ const BlogDetail = async ({ params }: Props) => {
               <div className="rounded-full w-24 h-24 overflow-hidden">
                 <img
                   alt=""
-                  src={`${process.env.STRAPI_BASE_URL}${blog.attributes.author.data.attributes.profileImage.data.attributes.url}`}
+                  src={`${blog.attributes.author.data.attributes.profileImage.data.attributes.url}`}
                   className="h-full w-full object-cover"
                 />
               </div>
