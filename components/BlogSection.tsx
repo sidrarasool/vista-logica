@@ -15,7 +15,7 @@ const BlogSection: React.FC = async () => {
     title: blog.attributes.title,
     author: blog.attributes.author.data.attributes.name,
     description: blog.attributes.summary,
-    buttonLink: blog.attributes.slug,
+    buttonLink: `/vista-flair/${blog.attributes.slug}`,
   }))
 
   return (

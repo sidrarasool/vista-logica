@@ -68,7 +68,7 @@ const BlogDetail = async ({ params }: Props) => {
             height={400}
             className="rounded-md object-cover w-full"
           />
-          <div className="text-sm md:text-lg leading-relaxed mt-6">
+          <div className="prose lg:prose-xl 2xl:prose-2xl list-lower-alpha max-w-none mt-6">
             <BlocksRenderer content={blog.attributes.content} />
           </div>
 

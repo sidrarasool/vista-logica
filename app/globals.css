@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+ol > li {
+  list-style-type: decimal !important;
+}
+
+ol > ol > li {
+  list-style-type: lower-alpha !important;
+}
+
+ol > ol > ol > li {
+  list-style-type: lower-roman !important;
+}
