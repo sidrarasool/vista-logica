@@ -13,6 +13,8 @@ type Props = {
   params: { slug: string }
 }
 
+export const revalidate = 0
+
 const BlogDetail = async ({ params }: Props) => {
   const blogResponse = await fetch(
     `${process.env.STRAPI_BASE_URL}/api/blogs?populate=author.profileImage,featuredImage&filters[slug][$eq]=${params.slug}`,

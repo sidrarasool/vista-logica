@@ -8,6 +8,8 @@ import ContactSection from "@/components/Contactsection"
 import BlogSection from "@/components/BlogSection"
 import Link from "next/link"
 
+export const revalidate = 0
+
 export default function Home() {
   return (
     <div className="flex flex-col min-h-screen w-full items-center justify-between overflow-x-hidden">

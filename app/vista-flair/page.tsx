@@ -7,6 +7,8 @@ import ImageCarousel from "@/components/ImageCarousel"
 import { format } from "date-fns"
 import HorizontalBlogSection from "@/components/HorizontalBlogSection"
 
+export const revalidate = 0
+
 interface Blog {
   attributes: {
     featuredImage: {
