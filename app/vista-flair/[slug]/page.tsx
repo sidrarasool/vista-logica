@@ -8,6 +8,7 @@ import XApp from "@/public/assets/x.svg"
 import LinkedIn from "@/public/assets/linkedIn.svg"
 import { format } from "date-fns"
 import { BlocksRenderer } from "@strapi/blocks-react-renderer"
+import Link from "next/link"
 
 type Props = {
   params: { slug: string }
@@ -92,10 +93,32 @@ const BlogDetail = async ({ params }: Props) => {
                 <p className="text-lg text-[#4D5763]">
                   {blog.attributes.author.data.attributes.designation}
                 </p>
+
                 <div className="flex grayscale gap-2 mt-2">
-                  <Facebook className="w-4 h-4" />
-                  <XApp className="w-4 h-4" />
-                  <LinkedIn className="w-4 h-4" />
+                  {blog.attributes.author.data.attributes.facebookUrl && (
+                    <Link
+                      href={blog.attributes.author.data.attributes.facebookUrl}
+                      target="_blank"
+                    >
+                      <Facebook className="w-4 h-4" />
+                    </Link>
+                  )}
+                  {blog.attributes.author.data.attributes.xUrl && (
+                    <Link
+                      href={blog.attributes.author.data.attributes.xUrl}
+                      target="_blank"
+                    >
+                      <XApp className="w-4 h-4" />
+                    </Link>
+                  )}
+                  {blog.attributes.author.data.attributes.linkedInUrl && (
+                    <Link
+                      href={blog.attributes.author.data.attributes.linkedInUrl}
+                      target="_blank"
+                    >
+                      <LinkedIn className="w-4 h-4" />
+                    </Link>
+                  )}
                 </div>
               </div>
             </div>
