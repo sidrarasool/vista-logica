@@ -41,13 +41,15 @@ const Header: React.FC<HeaderProps> = ({ backgroundColor }) => {
     >
       <div className=" mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16 items-center">
-          <div className="w-[9rem] md:w-[18rem]">
-            {backgroundColor ? (
-              <VistaLogoHorizontalBlack />
-            ) : (
-              <VistaLogoHorizontal />
-            )}
-          </div>
+          <Link href="/">
+            <div className="w-[9rem] md:w-[18rem]">
+              {backgroundColor ? (
+                <VistaLogoHorizontalBlack />
+              ) : (
+                <VistaLogoHorizontal />
+              )}
+            </div>
+          </Link>
           <div className="hidden md:flex md:justify-center ml-10">
             <div className="flex items-baseline space-x-4">
               <Link

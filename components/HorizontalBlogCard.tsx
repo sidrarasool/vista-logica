@@ -26,9 +26,7 @@ const HorizontalBlogCard: React.FC<BlogCardProps> = ({
         <img
           src={imageSrc}
           alt={title}
-          width={600}
-          height={200}
-          className="rounded-md"
+          className="rounded-md h-[13rem] w-[20rem]"
         />
       </div>
       <div className="w-full md:w-2/3 md:ml-5 ">

@@ -266,7 +266,7 @@ const Services: React.FC = () => {
       </div>
       <section className="bg-blue-50 py-16 mt-10 flex flex-col items-center w-full">
         <h2 className="text-xl md:text-3xl font-semibold text-center mb-4 mx-2">
-          Trying to cope with the digital evolution?
+          Want to stay ahead of the digital evolution?
         </h2>
         <p className="text-center text-[#4D5763] text-md mb-8 max-w-[37rem] md:mx-auto font-poppins mx-2">
           It is time to lead or to be left behind!

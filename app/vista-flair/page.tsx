@@ -1,11 +1,43 @@
 import Footer from "@/components/Footer"
 import Header from "@/components/Header"
-import React from "react"
 
 import HorizontalBlogCard from "@/components/HorizontalBlogCard" // Import the HorizontalBlogCard component
 import BlogCard from "@/components/BlogCard"
 import ImageCarousel from "@/components/ImageCarousel"
 import { format } from "date-fns"
+import HorizontalBlogSection from "@/components/HorizontalBlogSection"
+
+interface Blog {
+  attributes: {
+    featuredImage: {
+      data: {
+        attributes: {
+          url: string
+        }
+      }
+    }
+    title: string
+    author: {
+      data: {
+        attributes: {
+          name: string
+        }
+      }
+    }
+    summary: string
+    slug: string
+    createdAt: string
+  }
+}
+
+interface BlogCardData {
+  imageSrc: string
+  title: string
+  author: string
+  description: string
+  buttonLink: string
+  date: string
+}
 
 const VistaFlair = async () => {
   const featuredBlogsReponse = await fetch(
@@ -14,7 +46,7 @@ const VistaFlair = async () => {
   )
   const { data: featuredBlogs } = await featuredBlogsReponse.json()
 
-  const carouselImages = (featuredBlogs ?? []).map((blog: any) => ({
+  const carouselImages = (featuredBlogs ?? []).map((blog: Blog) => ({
     src: `${blog.attributes.featuredImage.data.attributes.url}`,
     title: blog.attributes.title,
     author: blog.attributes.author.data.attributes.name,
@@ -35,7 +67,7 @@ const VistaFlair = async () => {
 
   const { data: allBlogs } = await allBlogsReponse.json()
 
-  const blogData = (allBlogs ?? []).map((blog: any) => ({
+  const blogData: BlogCardData[] = (allBlogs ?? []).map((blog: Blog) => ({
     imageSrc: `${blog.attributes.featuredImage.data.attributes.url}`,
     title: blog.attributes.title,
     author: blog.attributes.author.data.attributes.name,
@@ -44,7 +76,7 @@ const VistaFlair = async () => {
     date: format(new Date(blog.attributes.createdAt), "dd/MM/yyyy"),
   }))
 
-  const blogCards = (featuredBlogs ?? []).map((blog: any) => ({
+  const blogCards: BlogCardData[] = (featuredBlogs ?? []).map((blog: Blog) => ({
     image: `${blog.attributes.featuredImage.data.attributes.url}`,
     title: blog.attributes.title,
     author: blog.attributes.author.data.attributes.name,
@@ -59,40 +91,7 @@ const VistaFlair = async () => {
       <div className="w-[90%] md:w-3/4 mx-5 md:mx-24 mb-16 mt-28 flex flex-col items-center rounded-md">
         <ImageCarousel images={carouselImages} />
       </div>
-      <div className="w-3/4 mx-24 mb-16">
-        <div className="flex flex-col-reverse md:flex-row justify-between gap-y-1 items-center mb-4">
-          <h2 className="text-xl font-semibold">Flairs in focus</h2>
-          <div className="relative">
-            <input
-              type="text"
-              placeholder="Search blog"
-              className="px-4 py-2 border rounded-3xl"
-            />
-            <div className="w-8 h-8 absolute m-[0.35rem] py-[0.25rem] pl-[0.5rem] right-0 top-0 rounded-[50%] bg-[#589CE7] text-white">
-              <i className="fa-solid fa-magnifying-glass"></i>
-            </div>
-          </div>
-        </div>
-        {blogCards.map((card: any, index: number) => (
-          <HorizontalBlogCard
-            key={index}
-            imageSrc={card.image}
-            title={card.title}
-            author={card.author}
-            description={card.description}
-            buttonLink={card.buttonLink}
-            date={card.date}
-          />
-        ))}
-        <div className="w-full flex justify-center items-center gap-x-4">
-          <button className="border-[1px] border-[#CAD3DD] rounded-md px-3 py-2 text-[#CAD3DD] hover:text-[#4D5763]">
-            <i className="fa-solid fa-chevron-left"></i>
-          </button>
-          <button className="border-[1px] border-[#CAD3DD] rounded-md px-3 py-2 text-[#CAD3DD] hover:text-[#4D5763]">
-            <i className="fa-solid fa-chevron-right"></i>
-          </button>
-        </div>
-      </div>
+      <HorizontalBlogSection blogCards={blogCards} />
       <div className="w-3/4 mx-24 mb-16">
         <div className="flex  items-center mb-4">
           <h2 className="text-xl font-semibold">

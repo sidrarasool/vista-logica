@@ -20,20 +20,18 @@ const BlogCard: React.FC<BlogCardProps> = ({
 }) => {
   return (
     <div className="bg-white rounded-lg shadow-md overflow-hidden w-full border">
-      <img
-        src={image}
-        alt={title}
-        width={600}
-        height={200}
-        className="object-cover"
-      />
+      <img src={image} alt={title} className="object-cover h-[13rem] w-full" />
       <div className="p-4 flex flex-col justify-between h-[15rem]">
         <div>
-          <h3 className="text-l text-[#011021] font-semibold mb-2">{title}</h3>
+          <h3 className="text-l text-[#011021] font-semibold mb-2 line-clamp-2">
+            {title}
+          </h3>
           <p className="text-[#011021] text-sm mb-4">
             By <span className="font-medium">{author}</span>
           </p>
-          <p className="text-gray-700 mb-4 text-sm">{description}</p>
+          <p className="text-gray-700 mb-4 text-sm line-clamp-3">
+            {description}
+          </p>
         </div>
         <div className="flex justify-between items-center">
           <Link
