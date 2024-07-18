@@ -10,7 +10,7 @@ const afacad = Afacad({ subsets: ["latin"] })
 export const metadata: Metadata = {
   title: "Vista Logica",
   description:
-    "Optmising business outcomes through technology and digital enablemen",
+    "Optmising business outcomes through technology and digital enablement",
 }
 
 export default function RootLayout({
