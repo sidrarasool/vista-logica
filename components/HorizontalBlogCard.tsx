@@ -22,11 +22,11 @@ const HorizontalBlogCard: React.FC<BlogCardProps> = ({
 }) => {
   return (
     <div className="flex flex-col md:flex-row items-center mb-8 p-4 border rounded-lg shadow-sm">
-      <div className="w-full md:w-1/3 mb-4 md:mb-0">
+      <div className="w-full flex justify-center md:w-1/3 mb-4 md:mb-0">
         <img
           src={imageSrc}
           alt={title}
-          className="rounded-md h-[8rem]  md:h-[11rem] w-[20rem]"
+          className="rounded-md object-cover h-[13rem] w-full"
         />
       </div>
       <div className="w-full md:w-2/3 md:ml-5 ">
