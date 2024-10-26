@@ -209,6 +209,10 @@ const digitalExperienceAndDesignTabs = [
         name: "Process Optimisation",
         icon: "/assets/digitalExperience/process_optimisation.svg",
       },
+      {
+        name: "Product design and market fit simulation",
+        icon: "/assets/digitalExperience/ad_tech.svg",
+      },
     ],
   },
 ]

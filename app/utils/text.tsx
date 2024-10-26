@@ -7,8 +7,8 @@ export const cardsContent = [
       "Data and analytics strategy",
       "Data governance",
       "Data / Al architecture & design",
-      "Data platforms",
       "Data engineering and visualisation",
+      "Gen AI application development",
       "Machine learning and advanced analytics",
     ],
   },
@@ -32,7 +32,7 @@ export const cardsContent = [
     description: "Captivate and convert by streamlining cohesive experiences",
     items: [
       "Digital strategy and advisory",
-      "Product design",
+      "Product design and market fit simulation",
       "Ad Tech and channel monetisation",
       "User experience and interface design",
       "UX need and journey mapping",
