@@ -14,14 +14,10 @@ const PrivacyPolicy: React.FC = () => {
           }}
         >
           <div className="absolute inset-0 bg-black opacity-70"></div>
-          <div className="relative z-10 max-w-[56rem] mx-auto px-4 sm:px-6 lg:px-8 pt-16 flex flex-col items-center">
+          <div className="relative z-10 max-w-[56rem] mx-auto px-4 sm:px-6 lg:px-8 py-16 flex flex-col items-center">
             <h2 className="text-white text-4xl sm:text-5xl lg:text-5xl font-semibold">
               Privacy policy
             </h2>
-            <p className="my-5 text-white text-sm max-w-2xl text-center">
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry&apos;s standard
-            </p>
           </div>
         </div>
       </div>
