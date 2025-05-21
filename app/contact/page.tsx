@@ -285,7 +285,7 @@ const Contact: React.FC = () => {
                   digital transformations
                 </p>
                 <p className="mb-5 text-sm">
-                  <i className="fa-sharp fa-solid fa-envelope mr-2"></i>{" "}
+                  <i className="fa-sharp fa-solid fa-envelope mr-2"></i>{' '}
                   info@vistalogica.com.au
                 </p>
                 <p className="mb-5 text-lg font-semibold">Social Links</p>
@@ -299,7 +299,12 @@ const Contact: React.FC = () => {
                   <Link href="#" className="text-white hover:text-gray-300">
                     <i className="fab fa-twitter"></i>
                   </Link>
-                  <Link href="#" className="text-white hover:text-gray-300">
+                  <Link
+                    href="https://www.linkedin.com/company/vistalogicai/"
+                    className="text-white hover:text-gray-300"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <i className="fab fa-linkedin-in"></i>
                   </Link>
                 </div>
@@ -310,7 +315,7 @@ const Contact: React.FC = () => {
       </div>
       <Footer />
     </div>
-  )
+  );
 }
 
 export default Contact
