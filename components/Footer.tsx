@@ -34,7 +34,7 @@ const Footer: React.FC = () => {
           </a>
           <a href="/privacy-policy" className="hover:underline text-white">
             <h5 className=" text-white">Privacy policy</h5>
-          </a>{" "}
+          </a>{' '}
           {/* Add any additional contact info here if needed */}
         </div>
         <div className="flex flex-col items-start md:items-center space-y-4">
@@ -49,7 +49,12 @@ const Footer: React.FC = () => {
             <Link href="#" className="text-white hover:text-gray-300">
               <i className="fab fa-twitter"></i>
             </Link>
-            <Link href="#" className="text-white hover:text-gray-300">
+            <Link
+              href="https://www.linkedin.com/company/vistalogicai/"
+              className="text-white hover:text-gray-300"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <i className="fab fa-linkedin-in"></i>
             </Link>
           </div>
@@ -61,7 +66,7 @@ const Footer: React.FC = () => {
         </p>
       </div>
     </footer>
-  )
+  );
 }
 
 export default Footer
