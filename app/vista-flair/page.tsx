@@ -1,11 +1,9 @@
 import Footer from "@/components/Footer"
-import Header from "@/components/Header"
-
-import HorizontalBlogCard from "@/components/HorizontalBlogCard" // Import the HorizontalBlogCard component
-import BlogCard from "@/components/BlogCard"
-import ImageCarousel from "@/components/ImageCarousel"
-import { format } from "date-fns"
-import HorizontalBlogSection from "@/components/HorizontalBlogSection"
+import Header from '@/components/Header';
+import ImageCarousel from '@/components/ImageCarousel';
+import { format } from 'date-fns';
+import HorizontalBlogSection from '@/components/HorizontalBlogSection';
+import BlogGridSection from '@/components/BlogGridSection';
 
 export const revalidate = 0
 
@@ -121,26 +119,7 @@ const VistaFlair = async () => {
           <ImageCarousel images={carouselImages} />
         </div>
         <HorizontalBlogSection blogCards={blogCards} />
-        <div className="w-3/4 mx-24 mb-16">
-          <div className="flex  items-center mb-4">
-            <h2 className="text-xl font-semibold">
-              Flairs you might have missed
-            </h2>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {blogData.map((blog: any, index: number) => (
-              <BlogCard
-                key={index}
-                image={blog.imageSrc}
-                title={blog.title}
-                description={blog.description}
-                date={blog.date}
-                author={blog.author}
-                buttonLink={blog.buttonLink}
-              />
-            ))}
-          </div>
-        </div>
+        <BlogGridSection blogData={blogData} />
         <Footer />
       </div>
     );

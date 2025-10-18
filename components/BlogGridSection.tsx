@@ -1,6 +1,6 @@
 "use client"
-import React, { ChangeEvent, useState } from "react"
-import HorizontalBlogCard from "./HorizontalBlogCard"
+import React, { useState } from "react"
+import BlogCard from "./BlogCard"
 
 interface BlogCardData {
   imageSrc: string
@@ -12,31 +12,18 @@ interface BlogCardData {
 }
 
 type Props = {
-  blogCards: BlogCardData[]
+  blogData: BlogCardData[]
 }
 
-const HorizontalBlogSection = ({ blogCards }: Props) => {
-  const [searchTerm, setSearchTerm] = useState<string>("")
+const BlogGridSection = ({ blogData }: Props) => {
   const [currentPage, setCurrentPage] = useState<number>(1);
-  const itemsPerPage = 3;
-
-  const handleSearchChange = (event: ChangeEvent<HTMLInputElement>) => {
-    setSearchTerm(event.target.value);
-    setCurrentPage(1); // Reset to first page when searching
-  };
-
-  const filteredBlogs: BlogCardData[] = blogCards.filter(
-    (card: BlogCardData) =>
-      card.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      card.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      card.author.toLowerCase().includes(searchTerm.toLowerCase()),
-  );
+  const itemsPerPage = 6; // 2 rows x 3 columns
 
   // Calculate pagination
-  const totalPages = Math.ceil(filteredBlogs.length / itemsPerPage);
+  const totalPages = Math.ceil(blogData.length / itemsPerPage);
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
-  const currentBlogs = filteredBlogs.slice(startIndex, endIndex);
+  const currentBlogs = blogData.slice(startIndex, endIndex);
 
   const handlePreviousPage = () => {
     if (currentPage > 1) {
@@ -53,35 +40,29 @@ const HorizontalBlogSection = ({ blogCards }: Props) => {
   const goToPage = (page: number) => {
     setCurrentPage(page);
   };
+
   return (
     <div className="w-3/4 mx-24 mb-16">
-      <div className="flex flex-col-reverse md:flex-row justify-between gap-y-1 items-center mb-4">
-        <h2 className="text-xl font-semibold">Flairs in focus</h2>
-        <div className="relative">
-          <input
-            type="text"
-            placeholder="Search blog"
-            className="px-4 py-2 border rounded-3xl"
-            onChange={handleSearchChange}
-            value={searchTerm}
-          />
-          <div className="w-8 h-8 absolute m-[0.35rem] py-[0.25rem] pl-[0.5rem] right-0 top-0 rounded-[50%] bg-[#589CE7] text-white">
-            <i className="fa-solid fa-magnifying-glass"></i>
-          </div>
-        </div>
+      <div className="flex items-center mb-4">
+        <h2 className="text-xl font-semibold">
+          Flairs you might have missed
+        </h2>
       </div>
-      {currentBlogs.map((card: any, index: number) => (
-        <HorizontalBlogCard
-          key={index}
-          imageSrc={card.image}
-          title={card.title}
-          author={card.author}
-          description={card.description}
-          buttonLink={card.buttonLink}
-          date={card.date}
-        />
-      ))}
-      {filteredBlogs.length > 0 && (
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {currentBlogs.map((blog: any, index: number) => (
+          <BlogCard
+            key={index}
+            image={blog.imageSrc}
+            title={blog.title}
+            description={blog.description}
+            date={blog.date}
+            author={blog.author}
+            buttonLink={blog.buttonLink}
+          />
+        ))}
+      </div>
+      
+      {blogData.length > 0 && (
         <div className="w-full flex justify-center items-center gap-x-2 mt-8">
           <button
             onClick={handlePreviousPage}
@@ -126,6 +107,7 @@ const HorizontalBlogSection = ({ blogCards }: Props) => {
       )}
     </div>
   );
-}
+};
 
-export default HorizontalBlogSection
+export default BlogGridSection;
+
