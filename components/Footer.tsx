@@ -62,7 +62,7 @@ const Footer: React.FC = () => {
       </div>
       <div className="container flex justify-center mx-auto mt-10 border-t border-gray-700 pt-6 space-x-6 px-2">
         <p className=" text-sm">
-          &copy; Vista Logica Pty Ltd. 2024. All rights reserved.
+          &copy; Vista Logica Pty Ltd. 2026. All rights reserved.
         </p>
       </div>
     </footer>
